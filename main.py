@@ -34,12 +34,12 @@ while game_on:
 
     #Detection with wall
     if snake.head.xcor()>280 or snake.head.xcor()<-280 or snake.head.ycor()<-280 or snake.head.ycor()>280:
-        scoreboard.game_over()
-        game_on=False
+        scoreboard.reset_score()
+        snake.reset()
 
     other_segment=snake.snake[1:]
     for segment in other_segment:
         if snake.head.distance(segment) < 10:
-            scoreboard.game_over()
-            game_on=False
-screen.exitonclick()
+            scoreboard.reset_score()
+            snake.reset()
+screen.mainloop()
